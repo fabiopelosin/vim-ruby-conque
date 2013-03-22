@@ -4,6 +4,9 @@ function! RelatedSpec()
   let l:filepath = expand("%:h")
   let l:fname = expand("%:t")
   let l:filepath_without_lib = substitute(l:filepath, "lib/[^/]*", "", "")
+  if  l:filepath_without_lib == 'lib'
+    let l:filepath_without_lib = ''
+  endif
 
   " We are already in a spec
   if l:fullpath =~ "_spec.rb$"
